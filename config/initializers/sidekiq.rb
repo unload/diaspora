@@ -38,12 +38,12 @@ Sidekiq.configure_server do |config|
 
   Sidekiq::Logging.initialize_logger AppConfig.sidekiq_log unless AppConfig.heroku?
 
-  # Set connection pool on Heroku
-  database_url = ENV['DATABASE_URL']
-  if(database_url)
-    ENV['DATABASE_URL'] = "#{database_url}?pool=#{AppConfig.environment.sidekiq.concurrency.get}"
-    ActiveRecord::Base.establish_connection
-  end
+  # # Set connection pool on Heroku
+  # database_url = ENV['DATABASE_URL']
+  # if(database_url)
+  #   ENV['DATABASE_URL'] = "#{database_url}?pool=#{AppConfig.environment.sidekiq.concurrency.get}"
+  #   ActiveRecord::Base.establish_connection
+  # end
 end
 
 Sidekiq.configure_client do |config|
