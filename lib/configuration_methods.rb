@@ -132,6 +132,17 @@ module Configuration
       end
     end
 
+    def dogecoin_donation_address
+      if AppConfig.settings.dogecoin_wallet_id.present?
+        warn "WARNING: dogecoin_wallet_id is now dogecoin_address. Change in diaspora.yml."
+        return AppConfig.settings.dogecoin_wallet_id
+      end
+
+      if AppConfig.settings.dogecoin_address.present?
+        AppConfig.settings.dogecoin_address
+      end
+    end
+
     private
 
     def get_git_info

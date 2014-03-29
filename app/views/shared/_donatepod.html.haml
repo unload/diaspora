@@ -14,3 +14,6 @@
 - if AppConfig.bitcoin_donation_address
   Bitcoin:
   %input{:type => "text", :id => "bitcoin_address", :value => AppConfig.bitcoin_donation_address, :readonly => true}
+- if AppConfig.dogecoin_donation_address
+  Dogecoin:
+  %input{:type => "text", :id => "dogecoin_address", :value => AppConfig.dogecoin_donation_address, :readonly => true}
